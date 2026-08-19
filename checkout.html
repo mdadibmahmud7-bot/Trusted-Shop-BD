@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অর্ডার কনফার্ম করুন</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Trusted Shop BD</h1>
+    </header>
+
+    <div class="checkout-form">
+      <div class="payment-box">
+    <h3>পেমেন্ট নির্দেশিকা</h3>
+    <p>বিকাশ/নগদ (Personal): <strong>01746344323</strong></p>
+    <p><small>*অর্ডার কনফার্ম করার আগে নম্বরে সেন্ড মানি করুন অথবা ক্যাশ অন ডেলিভারি বেছে নিন।</small></p>
+</div>
+
+        <h2>আপনার তথ্য দিন</h2>
+        <form id="orderForm">
+            <input type="text" id="name" placeholder="আপনার নাম" required><br><br>
+            <input type="tel" id="phone" placeholder="মোবাইল নম্বর" required><br><br>
+            <textarea id="address" placeholder="পূর্ণাঙ্গ ঠিকানা" required></textarea><br><br>
+            <button type="submit">অর্ডার নিশ্চিত করুন</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    let name = document.getElementById('name').value;
+    let phone = document.getElementById('phone').value;
+    let address = document.getElementById('address').value;
+    
+    // আপনার হোয়াটসঅ্যাপ নম্বর দিন (দেশি কোডসহ, যেমন: 88017XXXXXXXX)
+    let myNumber = "8801351332929"; 
+    
+    let message = `নতুন অর্ডার এসেছে!%0A%0Aনাম: ${name}%0Aফোন: ${phone}%0Aঠিকানা: ${address}`;
+    
+    let whatsappURL = `https://wa.me/${myNumber}?text=${message}`;
+    
+    window.open(whatsappURL, '_blank');
+});
+
+    </script>
+
+</body>
+</html>
+<input type="text" id="trxid" placeholder="বিকাশ/নগদ TrxID (যদি পেমেন্ট করে থাকেন)">
